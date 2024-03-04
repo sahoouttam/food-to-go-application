@@ -1,12 +1,13 @@
 package com.food.to.go.application.orderservice.domain;
 
-import com.food.to.go.application.common.Money;
 import com.food.to.go.application.api.events.OrderLineItem;
+import com.food.to.go.application.common.Money;
+import com.food.to.go.application.common.RevisedOrderLineItem;
 
 import javax.persistence.CollectionTable;
 import javax.persistence.ElementCollection;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicReference;
+import java.util.Optional;
 
 public class OrderLineItems {
 
@@ -37,18 +38,25 @@ public class OrderLineItems {
     }
 
     public Money changeToOrderTotal(OrderRevision orderRevision) {
-        AtomicReference<Money> delta = new AtomicReference<>();
-        orderRevision.getRevisedLineItemQuantities().forEach((lineItemId, newQuantity) -> {
-            OrderLineItem lineItem = findOrderLineItem(lineItemId);
-            delta.set(delta.get().add(lineItem.deltaForChangedQuantity(newQuantity)));
-        });
-        return delta.get();
+        return orderRevision.getRevisedOrderLineItems()
+                .stream()
+                .map(item -> {
+                    OrderLineItem lineItem = findOrderLineItem(item.getMenuItemId());
+                    return lineItem.deltaForChangedQuantity(item.getQuantity());
+                })
+                .reduce(Money.ZERO, Money::add);
     }
 
     public void updateLineItems(OrderRevision orderRevision) {
         this.getLineItems().forEach(lineItem -> {
-            Integer revised = orderRevision.getRevisedLineItemQuantities().get(lineItem.getMenuItemId());
-            lineItem.setQuantity(revised);
+            Optional<Integer> revised = orderRevision.getRevisedOrderLineItems()
+                    .stream()
+                    .filter(item -> item.getMenuItemId().equals(lineItem.getMenuItemId()))
+                    .map(RevisedOrderLineItem::getQuantity)
+                    .findFirst();
+
+            lineItem.setQuantity(revised.orElseThrow(() ->
+                    new IllegalArgumentException(String.format("menu item id not found.", lineItem.getMenuItemId()))));
         });
     }
 

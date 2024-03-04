@@ -1,7 +1,6 @@
 package com.food.to.go.application.orderservice.domain;
 
 import io.eventuate.tram.events.common.DomainEvent;
-import junit.framework.Assert;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -44,7 +43,7 @@ public class Result {
         }
 
         public Result build() {
-            Assert.notNull(allowed);
+            //Assert.notNull(allowed);
             return new Result(events, allowed);
         }
 
