@@ -17,6 +17,21 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>io.eventuate.tram.core</groupId>
+                <artifactId>eventuate-platform-dependencies</artifactId>
+                <version>${eventuatePlatformVersion}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.eventuate.tram.sagas</groupId>
+                <artifactId>eventuate-tram-sagas-spring-orchestration</artifactId>
+                <version>${eventuateTramSagasVersion} </version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <dependencies>
         <dependency>
             <groupId>com.food.to.go.application</groupId>
@@ -25,6 +40,35 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.eventuate.tram.core</groupId>
+            <artifactId>eventuate-tram-aggregate-domain-events</artifactId>
+            <version>${eventuateTramVersion} </version>
+        </dependency>
+        <dependency>
+            <groupId>io.eventuate.tram.core</groupId>
+            <artifactId>eventuate-tram-spring-commands</artifactId>
+            <version>${eventuateTramVersion} </version>
+        </dependency>
+        <dependency>
+            <groupId>io.eventuate.tram.core</groupId>
+            <artifactId>eventuate-tram-spring-events</artifactId>
+            <version>${eventuateTramVersion} </version>
+        </dependency>
+        <dependency>
+            <groupId>io.eventuate.tram.core</groupId>
+            <artifactId>eventuate-tram-spring-jdbc-kafka</artifactId>
+            <version>${eventuateTramVersion} </version>
+        </dependency>
+        <dependency>
+            <groupId>io.eventuate.tram.sagas</groupId>
+            <artifactId>eventuate-tram-sagas-spring-orchestration-simple-dsl</artifactId>
+            <version>${eventuateTramSagasVersion}</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
         </dependency>
     </dependencies>
 </project>

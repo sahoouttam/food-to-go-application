@@ -1,17 +1,22 @@
 package com.food.to.go.application.orderservice.domain;
 
+import com.food.to.go.application.api.events.OrderDomainEvent;
 import com.food.to.go.application.common.Money;
 
-public class LineItemQuantityChange {
+public class OrderRevisionProposed implements OrderDomainEvent {
 
+    private final OrderRevision orderRevision;
     private final Money currentOrderTotal;
     private final Money newOrderTotal;
-    private final Money delta;
 
-    public LineItemQuantityChange(Money currentOrderTotal, Money newOrderTotal, Money delta) {
+    public OrderRevisionProposed(OrderRevision orderRevision, Money currentOrderTotal, Money newOrderTotal) {
+        this.orderRevision = orderRevision;
         this.currentOrderTotal = currentOrderTotal;
         this.newOrderTotal = newOrderTotal;
-        this.delta = delta;
+    }
+
+    public OrderRevision getOrderRevision() {
+        return orderRevision;
     }
 
     public Money getCurrentOrderTotal() {
@@ -20,9 +25,5 @@ public class LineItemQuantityChange {
 
     public Money getNewOrderTotal() {
         return newOrderTotal;
-    }
-
-    public Money getDelta() {
-        return delta;
     }
 }

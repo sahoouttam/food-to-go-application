@@ -1,4 +1,4 @@
-package com.food.to.go.application.orderservice.domain;
+package com.food.to.go.application.common;
 
 public class Address {
 

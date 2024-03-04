@@ -5,7 +5,7 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.7.15</version>
+    <version>2.6.12</version>
     <relativePath/>
   </parent>
 
@@ -25,6 +25,13 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <eventuateTramSagasVersion>0.23.0.RELEASE</eventuateTramSagasVersion>
+<!--    <eventuatePlatformVersion>2023.1.RELEASE</eventuatePlatformVersion>-->
+    <java.version>1.8</java.version>
+    <eventuateTramVersion>0.34.0.RELEASE</eventuateTramVersion>
+    <eventuatePlatformVersion>2022.0.RELEASE</eventuatePlatformVersion>
+    <eventuateCommonVersion>0.15.0.RELEASE</eventuateCommonVersion>
+    <eventuateTramSagasImageVersion>0.19.0.RELEASE</eventuateTramSagasImageVersion>
   </properties>
 
   <dependencyManagement>
@@ -39,10 +46,36 @@
         <artifactId>order-service-api</artifactId>
         <version>${project.version}</version>
       </dependency>
+<!--      <dependency>-->
+<!--        <groupId>io.eventuate.platform</groupId>-->
+<!--        <artifactId>eventuate-platform-dependencies</artifactId>-->
+<!--        <version>${eventuatePlatformVersion}</version>-->
+<!--      </dependency>-->
+<!--      <dependency>-->
+<!--        <groupId>io.eventuate.tram.core</groupId>-->
+<!--        <artifactId>eventuate-tram-jdbc-kafka</artifactId>-->
+<!--        <version>${eventuate.tram.version}</version>-->
+<!--      </dependency>-->
     </dependencies>
   </dependencyManagement>
 
   <dependencies>
-
   </dependencies>
+
+  <repositories>
+    <repository>
+      <id>central</id>
+      <url>https://repo1.maven.org/maven2</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+    </repository>
+    <repository>
+      <id>eventuate-snapshots</id>
+      <url>https://snapshots.repositories.eventuate.io/repository</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+    </repository>
+  </repositories>
 </project>

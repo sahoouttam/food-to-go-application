@@ -1,4 +1,4 @@
-package com.food.to.go.application.common.valueobject;
+package com.food.to.go.application.common;
 
 public enum OrderState {
 

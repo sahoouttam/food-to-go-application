@@ -1,6 +1,6 @@
 package com.food.to.go.application.orderservice.domain;
 
-import com.food.to.go.application.common.valueobject.Money;
+import com.food.to.go.application.common.Money;
 import com.food.to.go.application.api.events.OrderLineItem;
 
 import javax.persistence.CollectionTable;

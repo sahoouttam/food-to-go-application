@@ -1,4 +1,4 @@
-package com.food.to.go.application.common.valueobject;
+package com.food.to.go.application.common;
 
 import java.math.BigDecimal;
 import java.util.Objects;

@@ -22,5 +22,20 @@
             <groupId>com.food.to.go.application</groupId>
             <artifactId>common</artifactId>
         </dependency>
+        <dependency>
+            <groupId>io.eventuate.tram.core</groupId>
+            <artifactId>eventuate-tram-spring-messaging</artifactId>
+            <version>${eventuateTramVersion} </version>
+        </dependency>
+        <dependency>
+            <groupId>io.eventuate.tram.core</groupId>
+            <artifactId>eventuate-tram-spring-commands</artifactId>
+            <version>${eventuateTramVersion} </version>
+        </dependency>
+        <dependency>
+            <groupId>io.eventuate.tram.core</groupId>
+            <artifactId>eventuate-tram-spring-events</artifactId>
+            <version>${eventuateTramVersion} </version>
+        </dependency>
     </dependencies>
 </project>

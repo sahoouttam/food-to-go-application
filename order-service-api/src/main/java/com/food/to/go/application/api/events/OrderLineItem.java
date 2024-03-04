@@ -1,6 +1,6 @@
 package com.food.to.go.application.api.events;
 
-import com.food.to.go.application.common.valueobject.Money;
+import com.food.to.go.application.common.Money;
 
 public class OrderLineItem {
 
