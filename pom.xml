@@ -21,6 +21,8 @@
     <module>common</module>
     <module>order-service</module>
     <module>order-service-api</module>
+      <module>kitchen-service</module>
+    <module>kitchen-service-api</module>
   </modules>
 
   <properties>
@@ -44,6 +46,11 @@
       <dependency>
         <groupId>com.food.to.go.application</groupId>
         <artifactId>order-service-api</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.food.to.go.application</groupId>
+        <artifactId>kitchen-service-api</artifactId>
         <version>${project.version}</version>
       </dependency>
 <!--      <dependency>-->
