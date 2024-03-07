@@ -25,6 +25,8 @@
     <module>kitchen-service-api</module>
       <module>restaurant-service-api</module>
     <module>restaurant-service</module>
+      <module>consumer-service</module>
+    <module>consumer-service-api</module>
   </modules>
 
   <properties>
