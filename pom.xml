@@ -27,6 +27,8 @@
     <module>restaurant-service</module>
       <module>consumer-service</module>
     <module>consumer-service-api</module>
+      <module>delivery-service</module>
+    <module>delivery-service-api</module>
   </modules>
 
   <properties>
@@ -60,6 +62,11 @@
       <dependency>
         <groupId>com.food.to.go.application</groupId>
         <artifactId>restaurant-service-api</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.food.to.go.application</groupId>
+        <artifactId>delivery-service-api</artifactId>
         <version>${project.version}</version>
       </dependency>
 <!--      <dependency>-->
