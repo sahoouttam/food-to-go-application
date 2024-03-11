@@ -21,6 +21,7 @@ public class RestaurantController {
         return new CreateRestaurantResponse(restaurant.getId());
     }
 
+    @RequestMapping(path = "/{restaurantId}", method = RequestMethod.GET)
     public ResponseEntity<GetRestaurantResponse> get(@PathVariable long restaurantId) {
         return restaurantService.findById(restaurantId)
                 .map(restaurant -> new ResponseEntity<>(makeGetRestaurantResponse(restaurant), HttpStatus.OK))
